@@ -8,13 +8,16 @@
 function palindromeSwapper(str) {
   let newStr = '';
   for (var i = 0; i < str.length; i++) {
-    for (var j = 0; j < str.length; i++) {
+    for (var j = 0; j < str.length; j++) {
       if (i === j) {
-        newStr += str[j++];
+        newStr += str[j+1];
+        // console.log('1 ---> ' + newStr)
         newStr += str[j];
+        // console.log('2 ---> ' + newStr)
         j++;
       } else {
         newStr += str[j];
+        // console.log('3 ---> ' + newStr)
       }
     }
     if (isPalindrome(newStr)) return true;
@@ -29,9 +32,12 @@ function palindromeSwapper(str) {
  * @returns {boolean} true bila kata adalah palindrom
  */
 function isPalindrome(str) {
-  if (str.split('').reverse().join() === str) return console.log(true);
-  return console.log(false);
+  // console.log(str)
+  if (str.split('').reverse().join('') === str) return true;
+  return false;
 }
+
+// isPalindrome('arcecar')
 
 console.log(palindromeSwapper('arcecar')); // TRUE
 console.log(palindromeSwapper('racecar')); // TRUE
